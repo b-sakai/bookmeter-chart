@@ -19,6 +19,7 @@ const parseDate = (dateString) => new Date(dateString);
 
 const BookmeterChart = () => {
   const pagesData = bookData.pages.map((value) => parseInt(value, 10));
+  const booksTitleData = bookData.books;
   const cumulativePagesData = calculateCumulative(bookData.pages);
 
   const chartData = {
@@ -62,6 +63,23 @@ const BookmeterChart = () => {
         title: {
           display: true,
           text: 'Cumulative Pages',
+        },
+      },
+    },
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            const index = context.dataIndex;
+            const value = context.dataset.data[index];
+            const bookDataString = JSON.stringify(booksTitleData[index], null, 2);
+            
+            const lines = [
+              `${value}p`,
+              ...bookDataString.split('\n')
+            ];
+            return lines
+          },
         },
       },
     },
