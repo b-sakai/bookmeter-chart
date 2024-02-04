@@ -30,6 +30,8 @@ const BookmeterChart = () => {
         data: pagesData,
         borderColor: 'green',
         backgroundColor: 'rgba(0, 255, 0, 0.5)',
+        type: 'bar',
+        barPercentage: 20, // 棒グラフの太さをパーセンテージで指定
       },
       {
         label: 'Cumulative Pages',
@@ -37,6 +39,7 @@ const BookmeterChart = () => {
         borderColor: 'blue',
         backgroundColor: 'rgba(0, 0, 255, 0.5)',
         yAxisID: 'cumulativePagesYAxis', // Cumulative Pages専用の軸を指定
+        type: 'line',
       },
     ],
   };
