@@ -5,6 +5,10 @@ on:
   workflow_dispatch:
 jobs:
   bookDataUpdate:
+    permissions:
+      actions: write
+      checks: write
+      contents: write
     runs-on: ubuntu-latest # 最新のubuntu環境で下記のジョブを実行
     steps:
       - uses: actions/checkout@v2
