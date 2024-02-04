@@ -16,7 +16,12 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://b-sakai.github.io/bookmeter-chart/",
   "scripts": {
+    "rm": "rm -rf docs",
+    "mv": "mv build docs",
+    "git": "git add . && git commit && git push origin master",
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git",    
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
