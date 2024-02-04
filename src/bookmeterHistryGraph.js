@@ -18,22 +18,24 @@ const calculateCumulative = (data) => {
 const parseDate = (dateString) => new Date(dateString);
 
 const BookmeterChart = () => {
-  const cumulativePages = calculateCumulative(bookData.pages);
+  const pagesData = bookData.pages.map((value) => parseInt(value, 10));
+  const cumulativePagesData = calculateCumulative(bookData.pages);
 
   const chartData = {
     labels: bookData.dates.map(parseDate),
     datasets: [
       {
         label: 'Pages',
-        data: bookData.pages.map((value) => parseInt(value, 10)),
+        data: pagesData,
         borderColor: 'green',
         backgroundColor: 'rgba(0, 255, 0, 0.5)',
       },
       {
         label: 'Cumulative Pages',
-        data: cumulativePages,
+        data: cumulativePagesData,
         borderColor: 'blue',
         backgroundColor: 'rgba(0, 0, 255, 0.5)',
+        yAxisID: 'cumulativePagesYAxis', // Cumulative Pages専用の軸を指定
       },
     ],
   };
@@ -44,11 +46,23 @@ const BookmeterChart = () => {
         type: 'time',
         time: {
           unit: 'day',
-          tooltipFormat: 'YYYY/MM/DD', // ツールチップに表示される日付のフォーマット
+          tooltipFormat: 'yyyy/MM/dd',
         },
       },
       y: {
         beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Pages',
+        },
+      },
+      cumulativePagesYAxis: {
+        beginAtZero: true,
+        position: 'right',
+        title: {
+          display: true,
+          text: 'Cumulative Pages',
+        },
       },
     },
   };
@@ -62,5 +76,6 @@ const BookmeterChart = () => {
     </div>
   );
 };
+
 
 export default BookmeterChart;
