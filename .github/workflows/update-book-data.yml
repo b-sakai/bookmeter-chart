@@ -21,7 +21,6 @@ jobs:
         working-directory: src/python # scriptsのファイルを指定
         run: |
           python scraping.py
-          mv book-data.json ./../src/python/book-data.json
       - name: commit files
         run: |
           git config --global user.name "${{ github.actor }}"
