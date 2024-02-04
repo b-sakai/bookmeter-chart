@@ -1,31 +1,31 @@
-name: update book data conpass schedule 　# このワークフローの名前を記述（自由にきめてOK）
+name: update book data conpass schedule # このワークフローの名前を記述（自由にきめてOK）
 on:
   schedule:
     - cron: "0 15 * * *" # 午前0時に実行(UTC基準なので9時間引く)
   workflow_dispatch:
 jobs:
   readme:
-    runs-on: ubuntu-latest　# 最新のubuntu環境で下記のジョブを実行
+    runs-on: ubuntu-latest # 最新のubuntu環境で下記のジョブを実行
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2 　# pythonをセットアップ
+      - uses: actions/setup-python@v2 # pythonをセットアップ
         with:
           python-version: "3.9" # pythonのバージョンを指定
-          architecture: "x64"　# アーキテクチャを指定
+          architecture: "x64" # アーキテクチャを指定
       - name: pip setting
         run: |　# インストールを実行
           python -m pip install --upgrade pip
           pip install requests
           pip install bs4
       - name: run python
-        working-directory: src/python　# scriptsのファイルを指定
+        working-directory: src/python # scriptsのファイルを指定
         run: |
-          python scraping.py　　# pythonを実行
-          mv book-data.json ./../src/python/book-data.json # book-data.jsonを上書き
+          python scraping.py
+          mv book-data.json ./../src/python/book-data.json
       - name: commit files
         run: |　　# githubの設定
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add src/python/book-data.json
           git commit -m 'update book-data.json'
-          git push origin main　　# mainブランチにプッシュ
+          git push origin main
