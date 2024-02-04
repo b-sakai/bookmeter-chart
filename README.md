@@ -22,3 +22,7 @@ https://b-sakai.github.io/bookmeter-chart/
 * react-chartjs-2
 * chart.js
 * chartjs-adapter-date-fns
+
+## Reference
+
+https://bookmeter.com/home
