@@ -45,8 +45,8 @@ const BookmeterChart = () => {
       x: {
         type: 'time',
         time: {
-          unit: 'day',
-          tooltipFormat: 'yyyy/MM/dd',
+          unit: 'year',
+          tooltipFormat: 'yyyy/MM/DD',
         },
       },
       y: {
