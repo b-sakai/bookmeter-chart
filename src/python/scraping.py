@@ -53,4 +53,4 @@ if __name__ == '__main__':
 
     # JSON形式で出力
     with open("book_data.json", "w") as json_file:
-        json.dump(allData, json_file)
+        json.dump(allData, json_file, indent=2)
