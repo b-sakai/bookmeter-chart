@@ -1,3 +1,9 @@
+# bookmeter-chart for myself
+
+## Github Pages
+
+https://b-sakai.github.io/bookmeter-chart/
+
 ## Requirements
 
 ### python
