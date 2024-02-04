@@ -13,19 +13,19 @@ def get_data_from_bookmeter(aurl):
     site = requests.get(aurl, headers=headers)
     data = BeautifulSoup(site.content, 'html.parser')
 
-    bookList = data.findAll(class_="detail__title")
+    bookTagList = data.findAll(class_="detail__title")
+    bookList = [tag.text for tag in bookTagList]
+    print(bookList)    
     pageTagList = data.findAll(class_="detail__page")
     pageList = [tag.text for tag in pageTagList]
     print(pageList)
-    dateTagList = data.findAll(class_="detail__date")
-    print(dateTagList)
-    datelist = [tag.text if tag.text != "日付不明" else "2010/01/01" for tag in dateTagList]
-    # 結果を出力
-    print(datelist)
-    return {"pages": pageList, "dates": datelist}
+    dateTagList = data.findAll(class_="detail__date")    
+    dateList = [tag.text if tag.text != "日付不明" else "2010/01/01" for tag in dateTagList]
+    print(dateList)    
+    return {"pages": pageList, "dates": dateList, "books": bookList}
 
 def get_all_data(urlBase):
-    allData = {"pages": [], "dates": []}
+    allData = {"pages": [], "dates": [], "books": []}
     i = 0
     while True:
         i += 1
@@ -39,7 +39,8 @@ def get_all_data(urlBase):
             print(data["dates"])
         allData["pages"] += data["pages"]
         allData["dates"] += data["dates"]
-        if len(data["pages"]) == 0 or len(data["dates"]) == 0:
+        allData["books"] += data["books"]        
+        if len(data["pages"]) == 0 or len(data["dates"]) == 0 or len(data["books"]) == 0:
             break
     return allData
 
@@ -48,6 +49,7 @@ if __name__ == '__main__':
     allData = get_all_data(urlBase)
     allData["pages"].reverse()
     allData["dates"].reverse()
+    allData["books"].reverse()    
 
     # JSON形式で出力
     with open("book_data.json", "w") as json_file:
