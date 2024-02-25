@@ -32,3 +32,10 @@ jobs:
           git add src/python/book_data.json
           git commit -m 'update book-data.json'
           git push origin main
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - name: deploy
+        run: |
+          npm run deploy
