@@ -25,13 +25,24 @@ jobs:
         working-directory: src/python # scriptsのファイルを指定
         run: |
           python scraping.py
-      - name: commit files
+      - name: Set up Git
         run: |
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git add src/python/book_data.json
-          git commit -m 'update book-data.json'
-          git push origin main
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+      - name: Check for changes
+        id: check_changes
+        run: |
+          changes=$(git diff --name-only)
+          if [ -z "$changes" ]; then
+            echo "No changes detected. Exiting..."
+          else
+            echo "Changes detected: $changes"
+            git config --global user.name "${{ github.actor }}"
+            git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+            git add src/python/book_data.json
+            git commit -m 'update book-data.json'
+            git push origin main
+          fi
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
