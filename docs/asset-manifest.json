@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/bookmeter-chart/static/css/main.f855e6bc.css",
-    "main.js": "/bookmeter-chart/static/js/main.012ea6a4.js",
+    "main.css": "/bookmeter-chart/static/css/main.e6c13ad2.css",
+    "main.js": "/bookmeter-chart/static/js/main.aa8772bb.js",
     "static/js/592.89a94313.chunk.js": "/bookmeter-chart/static/js/592.89a94313.chunk.js",
-    "static/media/logo.svg": "/bookmeter-chart/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/bookmeter-chart/index.html",
-    "main.f855e6bc.css.map": "/bookmeter-chart/static/css/main.f855e6bc.css.map",
-    "main.012ea6a4.js.map": "/bookmeter-chart/static/js/main.012ea6a4.js.map",
+    "main.e6c13ad2.css.map": "/bookmeter-chart/static/css/main.e6c13ad2.css.map",
+    "main.aa8772bb.js.map": "/bookmeter-chart/static/js/main.aa8772bb.js.map",
     "592.89a94313.chunk.js.map": "/bookmeter-chart/static/js/592.89a94313.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.012ea6a4.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.aa8772bb.js"
   ]
 }
