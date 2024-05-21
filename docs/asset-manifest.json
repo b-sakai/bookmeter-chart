@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bookmeter-chart/static/css/main.e6c13ad2.css",
-    "main.js": "/bookmeter-chart/static/js/main.a56b09ce.js",
+    "main.js": "/bookmeter-chart/static/js/main.c7c28330.js",
     "static/js/592.89a94313.chunk.js": "/bookmeter-chart/static/js/592.89a94313.chunk.js",
     "index.html": "/bookmeter-chart/index.html",
     "main.e6c13ad2.css.map": "/bookmeter-chart/static/css/main.e6c13ad2.css.map",
-    "main.a56b09ce.js.map": "/bookmeter-chart/static/js/main.a56b09ce.js.map",
+    "main.c7c28330.js.map": "/bookmeter-chart/static/js/main.c7c28330.js.map",
     "592.89a94313.chunk.js.map": "/bookmeter-chart/static/js/592.89a94313.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.a56b09ce.js"
+    "static/js/main.c7c28330.js"
   ]
 }
